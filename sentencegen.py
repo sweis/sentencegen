@@ -31,9 +31,9 @@ example_templates = [[ "preposition", "pronoun", "noun", "adverb",
 
 wordlists = read_wordlists()
 
-print "Samples:"
-
-for i in xrange(10):
+# Generate a 256-bit poem
+entropy = 0
+while entropy < 256:
     rand_template = random.sample(example_templates, 1)[0]
-    print "\t{}".format(" ".join(generate_sentence(rand_template, wordlists)),
-                        measure_entropy(rand_template, wordlists))
+    print "\t{}".format(" ".join(generate_sentence(rand_template, wordlists)))
+    entropy += measure_entropy(rand_template, wordlists)

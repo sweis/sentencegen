@@ -23,7 +23,7 @@ def generate_sentence(template, element_map):
 
 
 example_template = [ "preposition", "adjective", "noun", "adverb",
-                     "adjective", "noun"]
+                     "pronoun", "adjective", "noun"]
 
 wordlists = read_word_sources()
 

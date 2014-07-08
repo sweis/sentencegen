@@ -1,6 +1,7 @@
 Script to generate random sentences and output the expected entropy
 
 Example output:
+
 	Example template: preposition adjective noun adverb adjective noun
 	Entropy: 54
 

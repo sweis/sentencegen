@@ -25,15 +25,12 @@ def generate_sentence(template, element_map):
 example_templates = [[ "preposition", "pronoun", "noun", "adverb",
                        "verb", "adjective", "noun"],
                      [ "adjective", "noun", "adverb",
-                       "verb", "preposition", "noun"],
-                     [ "pronoun", "adjective", "noun", 
-                       "verb", "noun"]]
+                       "verb", "preposition", "pronoun", "noun"],
+                     [ "adverb", "verb", "preposition",
+                       "adjective", "noun", "preposition", "noun"]]
 
 wordlists = read_wordlists()
 
-# Generate a 256-bit poem
-entropy = 0
-while entropy < 256:
+for i in xrange(10):
     rand_template = random.sample(example_templates, 1)[0]
     print "\t{}".format(" ".join(generate_sentence(rand_template, wordlists)))
-    entropy += measure_entropy(rand_template, wordlists)

@@ -3,8 +3,7 @@ Generate random sentences
 '''
 
 import math
-import random  # For demo only.
-
+from random import SystemRandom
 
 def read_wordlists():
     '''Reads a set of files named [element]s.txt in the same directory'''
@@ -19,8 +18,7 @@ def measure_entropy(template, element_map):
     return int(sum(map(lambda x: math.log(len(element_map[x]), 2), template)))
 
 def generate_sentence(template, element_map):
-    return map(lambda x: random.sample(element_map[x], 1)[0], template)
-
+    return map(lambda x: SystemRandom().sample(element_map[x], 1)[0], template)
 
 example_templates = [[ "preposition", "pronoun", "noun", "adverb",
                        "verb", "adjective", "noun"],
@@ -32,5 +30,5 @@ example_templates = [[ "preposition", "pronoun", "noun", "adverb",
 wordlists = read_wordlists()
 
 for i in xrange(10):
-    rand_template = random.sample(example_templates, 1)[0]
+    rand_template = SystemRandom().sample(example_templates, 1)[0]
     print "\t{}".format(" ".join(generate_sentence(rand_template, wordlists)))

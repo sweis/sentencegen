@@ -28,6 +28,8 @@ example_templates = [[ "preposition", "pronoun", "noun", "adverb",
                        "adjective", "noun", "preposition", "noun"]]
 
 wordlists = read_wordlists()
+print "\tEstimated entropy: {}".format(
+    map(lambda x: measure_entropy(x, wordlists), example_templates))
 
 for i in xrange(10):
     rand_template = SystemRandom().sample(example_templates, 1)[0]
